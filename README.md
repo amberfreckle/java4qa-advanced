@@ -73,3 +73,8 @@ Starting with Java Code for QA
 - Connection Pools 
 - PerparedStatement Caches
 
+# Jenkins, Sonar
+http://52.71.254.74:8080/jenkins/
+http://52.71.254.74:9000
+
+
