@@ -1,8 +1,14 @@
 package types.demo;
 
+import com.sun.istack.internal.NotNull;
+import com.sun.istack.internal.Nullable;
+
 import java.math.BigDecimal;
 
 public class TypesDemo {
+    @NotNull Integer ifield;
+    @Nullable Integer field;
+
     public strictfp static void main(String[] args) {
         //8 primitive types
         byte b = 0; //0..255 or -128..127
@@ -40,8 +46,31 @@ public class TypesDemo {
 
         boolean bbb = true | false;
 
-        System.out.println(0/0.);
-        System.out.println(Float.NaN);
+//        System.out.println(0/0.);
+//        System.out.println(Float.NaN);
 
+        bb = 0;
+        m(bb);
+//        System.out.println(bb);
+
+        Integer iw = null; //new Integer(4);
+//        System.out.println(iw.toString());
+
+
+        String str = "a";
+        str = str.toUpperCase();
+//        System.out.println(str);
+
+        String str1 = "A";
+        String str2 = "A"; //intern
+//        System.out.println(str1.equals(str2));
+
+        Integer i1 = 1000;
+        Integer i2 = 1000;
+        System.out.println(i1 == i2);
+    }
+
+    private static void m(byte arg) {
+        arg++;
     }
 }
