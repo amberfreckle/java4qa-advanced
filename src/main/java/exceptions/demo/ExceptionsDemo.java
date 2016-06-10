@@ -1,5 +1,9 @@
 package exceptions.demo;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
 
 public class ExceptionsDemo {
@@ -12,24 +16,19 @@ public class ExceptionsDemo {
 
 class EmployeeDAO {
     public String getEmployeeNameById(int id) throws EmployeeNotFoundException {
-        DBConnection dbConnection = null;
-        try {
-            dbConnection = getConnection();
+
+        try (DBConnection dbConnection = getConnection();
+             InputStream is = new FileInputStream("")
+        ) {
             //.....
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             //0. Logging
             //1. Return default
             //2. Retrying
             //3. Fail-over
             throw new EmployeeNotFoundException("Can't ", e);
-        } finally {
-            if (dbConnection != null) {
-                try {
-                    dbConnection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         System.out.println("done...");
