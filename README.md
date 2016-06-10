@@ -86,3 +86,8 @@ Resources
 http://54.164.53.247:8080/jenkins/
 
 
+# Jenkins, Sonar
+http://52.71.254.74:8080/jenkins/
+http://52.71.254.74:9000
+
+
