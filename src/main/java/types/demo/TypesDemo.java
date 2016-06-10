@@ -3,13 +3,14 @@ package types.demo;
 import com.sun.istack.internal.NotNull;
 import com.sun.istack.internal.Nullable;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 
 public class TypesDemo {
-    @NotNull Integer ifield;
-    @Nullable Integer field;
+    @NotNull Integer objectField;
+    @Nullable static Integer classField;
 
-    public strictfp static void main(String[] args) {
+    public strictfp static void main(String[] args) throws IOException {
         //8 primitive types
         byte b = 0; //0..255 or -128..127
         short s = 0;
@@ -46,7 +47,7 @@ public class TypesDemo {
 
         boolean bbb = true | false;
 
-//        System.out.println(0/0.);
+        System.out.println(0/0.);
 //        System.out.println(Float.NaN);
 
         bb = 0;
@@ -68,9 +69,20 @@ public class TypesDemo {
         Integer i1 = 1000;
         Integer i2 = 1000;
         System.out.println(i1 == i2);
+        System.out.println(i1.equals(i2));
+
+        /*
+        try {
+            Class.forName("rrr");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        */
+
+        TypesDemo.classField = 8;
     }
 
-    private static void m(byte arg) {
+    private static void m(byte arg) throws IOException {
         arg++;
     }
 }
